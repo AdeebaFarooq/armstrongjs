@@ -12,4 +12,4 @@ COPY . .
 # Expose the port the app runs on
 EXPOSE 3111
 # Command to run the application
-CMD ["node", "pal.js"]
+CMD ["node", "armstrong.js"]
