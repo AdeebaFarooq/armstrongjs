@@ -10,7 +10,7 @@ function isArmstrongNumber(num) {
 
 // Create a server
 const server = http.createServer((req, res) => {
-    const urlParams = new URL(req.url, http://${req.headers.host}).searchParams;
+    const urlParams = new URL(req.url, `http://${req.headers.host}`).searchParams;  // Fixed URL constructor
     const number = parseInt(urlParams.get("number"), 10);
 
     if (!isNaN(number)) {
@@ -19,7 +19,7 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify({
             number,
             isArmstrong: result,
-            message: result ? ${number} is an Armstrong number. : ${number} is not an Armstrong number.
+            message: result ? `${number} is an Armstrong number` : `${number} is not an Armstrong number`
         }));
     } else {
         res.writeHead(400, { "Content-Type": "application/json" });
@@ -30,6 +30,7 @@ const server = http.createServer((req, res) => {
 });
 
 // Listen on port 3000
-server.listen(3111, () => {
-    console.log("Server is running on http://localhost:3111");
+server.listen(3000, () => {
+    console.log("Server is running on http://localhost:3000");
 });
+
